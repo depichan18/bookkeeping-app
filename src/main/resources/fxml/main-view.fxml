@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bookkeeping.controller.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleRefreshData" text="Refresh Data" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Accounts">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleNewAccount" text="New Account" />
+              <MenuItem mnemonicParsing="false" onAction="#handleEditAccount" text="Edit Account" />
+              <MenuItem mnemonicParsing="false" onAction="#handleDeleteAccount" text="Delete Account" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Transactions">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleNewTransaction" text="New Transaction" />
+                <MenuItem mnemonicParsing="false" onAction="#handleEditTransaction" text="Edit Transaction" />
+                <MenuItem mnemonicParsing="false" onAction="#handleDeleteTransaction" text="Delete Transaction" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Reports">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleGenerateTrialBalance" text="Trial Balance" />
+                <MenuItem mnemonicParsing="false" onAction="#handleGenerateBalanceSheet" text="Balance Sheet" />
+                <MenuItem mnemonicParsing="false" onAction="#handleGenerateIncomeStatement" text="Income Statement" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TabPane fx:id="mainTabPane" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Chart of Accounts">
+            <content>
+              <VBox spacing="10.0">
+                 <children>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                       <children>
+                          <Label text="Search:" />
+                          <TextField fx:id="accountSearchField" prefWidth="200.0" promptText="Search accounts..." />
+                          <Label text="Type:" />
+                          <ComboBox fx:id="accountTypeFilter" prefWidth="150.0" promptText="All Types" />
+                          <Region HBox.hgrow="ALWAYS" />
+                          <Button onAction="#handleNewAccount" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="New Account" />
+                          <Button onAction="#handleEditAccount" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Edit" />
+                          <Button onAction="#handleDeleteAccount" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Delete" />
+                       </children>
+                       <padding>
+                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                       </padding>
+                    </HBox>
+                    <TableView fx:id="accountsTable" VBox.vgrow="ALWAYS">
+                      <columns>
+                        <TableColumn fx:id="accountCodeColumn" prefWidth="100.0" text="Code" />
+                        <TableColumn fx:id="accountNameColumn" prefWidth="300.0" text="Account Name" />
+                          <TableColumn fx:id="accountTypeColumn" prefWidth="150.0" text="Type" />
+                          <TableColumn fx:id="balanceColumn" prefWidth="150.0" text="Balance" />
+                          <TableColumn fx:id="descriptionColumn" prefWidth="200.0" text="Description" />
+                      </columns>
+                       <columnResizePolicy>
+                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                       </columnResizePolicy>
+                    </TableView>
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+              </VBox>
+            </content>
+          </Tab>
+          <Tab text="Transactions">
+            <content>
+              <VBox spacing="10.0">
+                 <children>
+                    <HBox alignment="CENTER_LEFT" spacing="10.0">
+                       <children>
+                          <Label text="Search:" />
+                          <TextField fx:id="transactionSearchField" prefWidth="200.0" promptText="Search transactions..." />
+                          <Label text="Date:" />
+                          <DatePicker fx:id="transactionDateFilter" prefWidth="150.0" promptText="Filter by date" />
+                          <Region HBox.hgrow="ALWAYS" />
+                          <Button onAction="#handleNewTransaction" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="New Transaction" />
+                          <Button onAction="#handleEditTransaction" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Edit" />
+                          <Button onAction="#handleDeleteTransaction" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Delete" />
+                       </children>
+                       <padding>
+                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                       </padding>
+                    </HBox>
+                    <TableView fx:id="transactionsTable" VBox.vgrow="ALWAYS">
+                      <columns>
+                        <TableColumn fx:id="transactionNumberColumn" prefWidth="120.0" text="Transaction #" />
+                        <TableColumn fx:id="transactionDateColumn" prefWidth="120.0" text="Date" />
+                          <TableColumn fx:id="transactionDescriptionColumn" prefWidth="400.0" text="Description" />
+                          <TableColumn fx:id="totalAmountColumn" prefWidth="150.0" text="Amount" />
+                      </columns>
+                       <columnResizePolicy>
+                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                       </columnResizePolicy>
+                    </TableView>
+                 </children>
+                 <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                 </padding>
+              </VBox>
+            </content>
+          </Tab>
+            <Tab text="Reports">
+              <content>
+                <VBox spacing="20.0">
+                   <children>
+                      <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+                         <children>
+                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Trial Balance &amp; Balance Sheet" />
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                               <children>
+                                  <Label text="As of Date:" />
+                                  <DatePicker fx:id="balanceSheetDate" prefWidth="150.0" />
+                                  <Button onAction="#handleGenerateTrialBalance" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Generate Trial Balance PDF" />
+                                  <Button onAction="#handleGenerateBalanceSheet" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Generate Balance Sheet PDF" />
+                               </children>
+                            </HBox>
+                         </children>
+                         <padding>
+                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                         </padding>
+                      </VBox>
+                      <VBox spacing="10.0" style="-fx-background-color: white; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+                         <children>
+                            <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Income Statement (Profit &amp; Loss)" />
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+                               <children>
+                                  <Label text="From:" />
+                                  <DatePicker fx:id="reportStartDate" prefWidth="150.0" />
+                                  <Label text="To:" />
+                                  <DatePicker fx:id="reportEndDate" prefWidth="150.0" />
+                                  <Button onAction="#handleGenerateIncomeStatement" style="-fx-background-color: #2196F3; -fx-text-fill: white;" text="Generate Income Statement PDF" />
+                               </children>
+                            </HBox>
+                         </children>
+                         <padding>
+                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                         </padding>
+                      </VBox>
+                      <VBox fx:id="reportContentArea" VBox.vgrow="ALWAYS" />
+                   </children>
+                   <padding>
+                      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                   </padding>
+                </VBox>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
