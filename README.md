@@ -1,9 +1,37 @@
-# Bookkeeping Application## 🚀 Quick Start
+# Bookkeeping Application
+
+## 🎓 Background / Latar Belakang
+
+Hai hai! 🌸 Welcome to our kawaii bookkeeping adventure! ✨
+
+Aplikasi ini dibuat karena kita butuh solusi **simple but powerful** untuk akuntansi yang tidak ribet-ribet dan user-friendly banget! 💕 Seringkali small businesses sama individual entrepreneurs itu struggle dengan bookkeeping yang complicated dan software yang mahal atau terlalu complex untuk kebutuhan mereka yang basic.
+
+````
+🎯 Why This App Exists?
+• Small businesses need affordable bookkeeping solutions
+• Individual entrepreneurs want simple financial tracking
+• Students learning accounting need hands-on practice tools
+• Developers want modern, clean accounting software
+````
+
+**Original inspiration**: Setelah melihat banyak teman-teman yang pusing dengan manual bookkeeping dan software accounting yang expensive, kami decided to create something yang **functional, clean, dan accessible**! 🌟
+
+While this README ditulis dengan kawaii style yang playful (because why not make documentation fun? 🎀), the actual application interface itself is **professional and minimalist** - menggunakan GitHub Light theme yang clean dan modern. The UI is designed to be **functional and efficient** for serious accounting work, bukan kawaii-themed! 📊
+
+**Target users**: 
+- Small business owners yang butuh reliable bookkeeping
+- Students yang belajar double-entry accounting
+- Developers yang want to understand financial systems
+- Anyone who needs simple but complete accounting solution
+
+Let's make accounting fun and accessible untuk semua orang! 💪✨
+
+## 🚀 Quick Start
 
 1. **Prerequisites**: Java 21, Maven 3.6+, JavaFX SDK 21
 2. **Setup**: Extract JavaFX SDK ke `C:\Java\javafx-sdk-21.0.7\`
 3. **Run**: `mvn clean javafx:run`
-4. **Import Data**: `import-data.bat` untuk import accounts & transactions dari CSVplete Accounting System
+4. **Import Data**: `import-data.bat` untuk import accounts & transactions dari CSV
 
 ![Java](https://img.shields.io/badge/Java-21-orange) ![JavaFX](https://img.shields.io/badge/JavaFX-21-blue) ![Maven](https://img.shields.io/badge/Maven-3.6+-green) ![SQLite](https://img.shields.io/badge/Database-SQLite-lightblue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
@@ -11,8 +39,9 @@ Sistem akunting lengkap yang dibangun dengan JavaFX, Maven, SQLite, JPA, dan Hib
 
 **🎯 Features**: Double-Entry Bookkeeping • Chart of Accounts • Financial Reports • CSV Import • Modern UI
 
-## � Table of Contents
+## 📋 Table of Contents
 
+- [🎓 Background / Latar Belakang](#-background--latar-belakang)
 - [🚀 Quick Start](#-quick-start)
 - [👀 Application Preview](#-application-preview)
 - [✨ Fitur Utama](#fitur-utama)
@@ -28,19 +57,12 @@ Sistem akunting lengkap yang dibangun dengan JavaFX, Maven, SQLite, JPA, dan Hib
 - [🤝 Contributing](#-contributing)
 - [🎯 Quick Reference](#-quick-reference)
 
-## �🚀 Quick Start
-
-1. **Prerequisites**: Java 21, Maven 3.6+, JavaFX SDK 21
-2. **Setup**: Extract JavaFX SDK ke `C:\Java\javafx-sdk-21.0.7\`
-3. **Run**: `run.bat` atau `mvn clean javafx:run`
-4. **Import Data**: `import-data.bat` untuk import accounts & transactions dari CSV
-
 ## 👀 Application Preview
 
 ![Bookkeeping Application](src/main/resources/img/mainview.png)
 *Modern, clean interface dengan complete accounting functionality*
 
-## Fitur Utama
+## ✨ Fitur Utama
 
 ### 📊 Chart of Accounts (CoA)
 - Manajemen akun dengan kode, nama, tipe, dan deskripsi
@@ -107,7 +129,7 @@ Sistem akunting lengkap yang dibangun dengan JavaFX, Maven, SQLite, JPA, dan Hib
 - **✅ Input Validation**: Real-time validation untuk semua form input
 - **🎯 User-Friendly**: Intuitive workflow untuk accounting operations
 
-## Teknologi yang Digunakan
+## 🔧 Teknologi yang Digunakan
 
 - **JavaFX 21** - Framework UI
 - **Maven** - Build tool dan dependency management
@@ -195,7 +217,7 @@ debug-import.bat
 
 **🎯 Complete Workflow**: Account Setup → Transaction Entry → Report Generation
 
-## Struktur Database
+## 📊 Struktur Database
 
 ### Tabel `accounts`
 ```sql
@@ -231,7 +253,7 @@ debug-import.bat
 - description
 ```
 
-## Instalasi dan Menjalankan Aplikasi
+## 🏗️ Instalasi dan Menjalankan Aplikasi
 
 ### Prerequisites
 1. **Java 21** atau lebih tinggi
@@ -276,7 +298,7 @@ mvn clean compile
 mvn clean javafx:run
 ```
 
-## Penggunaan Aplikasi
+## 📚 Usage Guide
 
 ### 1. Chart of Accounts
 ![Chart of Accounts](src/main/resources/img/mainview.png)
