@@ -504,3 +504,41 @@
 }
 
 /* Subtle animations would be handled by JavaFX transitions in Java code */
+
+/* Transaction Dialog specific styles */
+.scroll-pane .content {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-fit-to-width: true;
+    -fx-fit-to-height: true;
+}
+
+/* Responsive form layouts */
+.grid-pane {
+    -fx-hgap: 10px;
+    -fx-vgap: 10px;
+}
+
+.form-section {
+    -fx-spacing: 10px;
+    -fx-padding: 15px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.form-section.header {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+}
+
+.form-section.entry {
+    -fx-background-color: #e8f5e8;
+    -fx-border-color: #4CAF50;
+}
+
+.form-section.totals {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #dee2e6;
+}

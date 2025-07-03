@@ -14,7 +14,8 @@ if /i not "%confirm%"=="y" (
 
 echo.
 echo Clearing database...
-mvn compile exec:java -Dexec.mainClass="com.bookkeeping.util.SampleDataLoader" -Dexec.args="--clear"
+del bookkeeping.db 2>nul
+echo Database file deleted and will be recreated on next app start.
 
 echo.
 echo Database cleared!

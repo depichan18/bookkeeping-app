@@ -8,38 +8,11 @@
    <top>
       <VBox>
          <children>
-            <MenuBar style="-fx-background-color: #f6f8fa; -fx-border-color: #d0d7de; -fx-border-width: 0 0 1px 0; -fx-padding: 8px 16px;">
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#handleRefreshData" text="Refresh Data" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Accounts">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#handleNewAccount" text="New Account" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleEditAccount" text="Edit Account" />
-                    <MenuItem mnemonicParsing="false" onAction="#handleDeleteAccount" text="Delete Account" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Transactions">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#handleNewTransaction" text="New Transaction" />
-                      <MenuItem mnemonicParsing="false" onAction="#handleEditTransaction" text="Edit Transaction" />
-                      <MenuItem mnemonicParsing="false" onAction="#handleDeleteTransaction" text="Delete Transaction" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Reports">
-                    <items>
-                      <MenuItem mnemonicParsing="false" onAction="#handleGenerateTrialBalance" text="Trial Balance" />
-                      <MenuItem mnemonicParsing="false" onAction="#handleGenerateBalanceSheet" text="Balance Sheet" />
-                      <MenuItem mnemonicParsing="false" onAction="#handleGenerateIncomeStatement" text="Income Statement" />
-                    </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
+            <HBox alignment="CENTER" style="-fx-background-color: #f6f8fa; -fx-border-color: #d0d7de; -fx-border-width: 0 0 1px 0; -fx-padding: 20px 24px;">
+               <children>
+                  <Label text="Bookkeeping Application" style="-fx-font-size: 24px; -fx-font-weight: 700; -fx-text-fill: #24292f;" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </top>
@@ -67,7 +40,7 @@
                                 <TextField fx:id="accountSearchField" prefWidth="240" promptText="Search accounts..." style="-fx-pref-height: 32px;" />
                                 <ComboBox fx:id="accountTypeFilter" prefWidth="140" promptText="All Types" style="-fx-pref-height: 32px;" />
                                 <Region HBox.hgrow="ALWAYS" />
-                                <Button onAction="#handleEditAccount" text="Edit" />
+                                <Button onAction="#handleEditAccount" styleClass="secondary" text="Edit" />
                                 <Button onAction="#handleDeleteAccount" styleClass="danger" text="Delete" />
                              </children>
                           </HBox>
@@ -116,7 +89,7 @@
                                 <TextField fx:id="transactionSearchField" prefWidth="240" promptText="Search transactions..." style="-fx-pref-height: 32px;" />
                                 <DatePicker fx:id="transactionDateFilter" prefWidth="150" promptText="Filter by date" style="-fx-pref-height: 32px;" />
                                 <Region HBox.hgrow="ALWAYS" />
-                                <Button onAction="#handleEditTransaction" text="Edit" />
+                                <Button onAction="#handleEditTransaction" styleClass="secondary" text="Edit" />
                                 <Button onAction="#handleDeleteTransaction" styleClass="danger" text="Delete" />
                              </children>
                           </HBox>
@@ -166,7 +139,7 @@
                                         <Label text="As of Date:" style="-fx-text-fill: #656d76;" />
                                         <DatePicker fx:id="balanceSheetDate" prefWidth="150" style="-fx-pref-height: 32px;" />
                                         <Region HBox.hgrow="ALWAYS" />
-                                        <Button onAction="#handleGenerateTrialBalance" text="Generate Trial Balance PDF" />
+                                        <Button onAction="#handleGenerateTrialBalance" styleClass="secondary" text="Generate Trial Balance PDF" />
                                         <Button onAction="#handleGenerateBalanceSheet" styleClass="primary" text="Generate Balance Sheet PDF" />
                                      </children>
                                   </HBox>

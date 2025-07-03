@@ -23,7 +23,7 @@ public class BookkeepingApplication extends Application {
         initializeApplication();
         
         FXMLLoader fxmlLoader = new FXMLLoader(BookkeepingApplication.class.getResource("/fxml/main-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1200, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1000, 650);
         
         // Add CSS
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
@@ -31,7 +31,9 @@ public class BookkeepingApplication extends Application {
         stage.setTitle("Bookkeeping Application - Accounting System");
         stage.getIcons().add(new Image(getClass().getResource("/img/icon.png").toString()));
         stage.setScene(scene);
-        stage.setMaximized(true);
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
+        stage.centerOnScreen();
         stage.show();
         
         // Set controller reference

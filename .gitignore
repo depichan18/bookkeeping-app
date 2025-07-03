@@ -99,3 +99,9 @@ backups/
 *.db-shm
 *.db-wal
 
+# Exclude example CSV files from git but keep them for local use
+# accounts.csv
+# transactions.csv
+# data-import.bat
+# clear-data.bat
+

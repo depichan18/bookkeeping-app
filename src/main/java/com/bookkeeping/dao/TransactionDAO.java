@@ -1,13 +1,15 @@
 package com.bookkeeping.dao;
 
-import com.bookkeeping.entity.Transaction;
-import com.bookkeeping.util.DatabaseUtil;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
-import jakarta.persistence.TypedQuery;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import com.bookkeeping.entity.Transaction;
+import com.bookkeeping.util.DatabaseUtil;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.TypedQuery;
 
 /**
  * DAO class untuk Transaction entity
@@ -48,12 +50,11 @@ public class TransactionDAO {
     public Optional<Transaction> findById(Long id) {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
-            Transaction transaction = em.find(Transaction.class, id);
-            if (transaction != null) {
-                // Eager load entries
-                transaction.getEntries().size();
-            }
-            return Optional.ofNullable(transaction);
+            TypedQuery<Transaction> query = em.createQuery(
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries WHERE t.id = :id", Transaction.class);
+            query.setParameter("id", id);
+            List<Transaction> results = query.getResultList();
+            return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
         } finally {
             em.close();
         }
@@ -66,17 +67,11 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t WHERE t.transactionNumber = :transactionNumber", Transaction.class);
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries WHERE t.transactionNumber = :transactionNumber", Transaction.class);
             query.setParameter("transactionNumber", transactionNumber);
             
             List<Transaction> results = query.getResultList();
-            if (!results.isEmpty()) {
-                Transaction transaction = results.get(0);
-                // Eager load entries
-                transaction.getEntries().size();
-                return Optional.of(transaction);
-            }
-            return Optional.empty();
+            return results.isEmpty() ? Optional.empty() : Optional.of(results.get(0));
         } finally {
             em.close();
         }
@@ -89,7 +84,7 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
             return query.getResultList();
         } finally {
             em.close();
@@ -103,7 +98,7 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t WHERE t.transactionDate >= :startDate AND t.transactionDate <= :endDate " +
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries WHERE t.transactionDate >= :startDate AND t.transactionDate <= :endDate " +
                 "ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
             query.setParameter("startDate", startDate);
             query.setParameter("endDate", endDate);
@@ -120,7 +115,7 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t WHERE t.transactionDate = :date " +
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries WHERE t.transactionDate = :date " +
                 "ORDER BY t.transactionNumber DESC", Transaction.class);
             query.setParameter("date", date);
             return query.getResultList();
@@ -136,7 +131,7 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t WHERE LOWER(t.description) LIKE LOWER(:description) " +
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries WHERE LOWER(t.description) LIKE LOWER(:description) " +
                 "ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
             query.setParameter("description", "%" + description + "%");
             return query.getResultList();
@@ -227,7 +222,7 @@ public class TransactionDAO {
         EntityManager em = DatabaseUtil.getEntityManager();
         try {
             TypedQuery<Transaction> query = em.createQuery(
-                "SELECT t FROM Transaction t ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
+                "SELECT t FROM Transaction t LEFT JOIN FETCH t.entries ORDER BY t.transactionDate DESC, t.transactionNumber DESC", Transaction.class);
             query.setMaxResults(limit);
             return query.getResultList();
         } finally {

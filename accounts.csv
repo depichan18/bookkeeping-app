@@ -1,0 +1,23 @@
+code,name,type,balance,active,description
+1100,Cash,ASSET,50000.00,true,Kas perusahaan
+1200,Accounts Receivable,ASSET,25000.00,true,Piutang usaha
+1300,Inventory,ASSET,75000.00,true,Persediaan barang dagangan
+1400,Prepaid Expenses,ASSET,5000.00,true,Biaya dibayar dimuka
+1500,Equipment,ASSET,100000.00,true,Peralatan kantor
+1600,Accumulated Depreciation,ASSET,-20000.00,true,Akumulasi penyusutan peralatan
+2100,Accounts Payable,LIABILITY,15000.00,true,Hutang usaha
+2200,Notes Payable,LIABILITY,30000.00,true,Hutang wesel
+2300,Accrued Expenses,LIABILITY,8000.00,true,Biaya yang masih harus dibayar
+3100,Owner's Capital,EQUITY,150000.00,true,Modal pemilik
+3200,Retained Earnings,EQUITY,32000.00,true,Laba ditahan
+4100,Sales Revenue,REVENUE,0.00,true,Pendapatan penjualan
+4200,Service Revenue,REVENUE,0.00,true,Pendapatan jasa
+4300,Interest Income,REVENUE,0.00,true,Pendapatan bunga
+5100,Cost of Goods Sold,COST_OF_GOODS_SOLD,0.00,true,Harga pokok penjualan
+5200,Salaries Expense,EXPENSE,0.00,true,Biaya gaji
+5300,Rent Expense,EXPENSE,0.00,true,Biaya sewa
+5400,Utilities Expense,EXPENSE,0.00,true,Biaya listrik dan air
+5500,Office Supplies Expense,EXPENSE,0.00,true,Biaya perlengkapan kantor
+5600,Depreciation Expense,EXPENSE,0.00,true,Biaya penyusutan
+5700,Insurance Expense,EXPENSE,0.00,true,Biaya asuransi
+5800,Marketing Expense,EXPENSE,0.00,true,Biaya pemasaran

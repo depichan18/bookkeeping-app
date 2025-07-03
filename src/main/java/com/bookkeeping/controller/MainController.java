@@ -1,28 +1,5 @@
 package com.bookkeeping.controller;
 
-import com.bookkeeping.service.AccountService;
-import com.bookkeeping.service.TransactionService;
-import com.bookkeeping.service.ReportService;
-import com.bookkeeping.service.PDFReportService;
-import com.bookkeeping.entity.Account;
-import com.bookkeeping.entity.AccountType;
-import com.bookkeeping.entity.Transaction;
-import com.bookkeeping.model.BalanceSheetData;
-import com.bookkeeping.model.IncomeStatementData;
-import com.bookkeeping.model.TrialBalanceData;
-import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.VBox;
-import javafx.stage.FileChooser;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -30,6 +7,40 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import com.bookkeeping.entity.Account;
+import com.bookkeeping.entity.AccountType;
+import com.bookkeeping.entity.Transaction;
+import com.bookkeeping.model.BalanceSheetData;
+import com.bookkeeping.model.IncomeStatementData;
+import com.bookkeeping.model.TrialBalanceData;
+import com.bookkeeping.service.AccountService;
+import com.bookkeeping.service.PDFReportService;
+import com.bookkeeping.service.ReportService;
+import com.bookkeeping.service.TransactionService;
+
+import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * Main Controller untuk aplikasi bookkeeping
@@ -413,7 +424,14 @@ public class MainController implements Initializable {
             dialogStage.setTitle(account == null ? "New Account" : "Edit Account");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(stage);
-            dialogStage.setScene(new Scene(loader.load()));
+            
+            Scene scene = new Scene(loader.load(), 550, 500);
+            scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
+            dialogStage.setScene(scene);
+            dialogStage.setResizable(true);
+            dialogStage.setMinWidth(500);
+            dialogStage.setMinHeight(450);
+            dialogStage.centerOnScreen();
             
             AccountDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
@@ -436,7 +454,14 @@ public class MainController implements Initializable {
             dialogStage.setTitle(transaction == null ? "New Transaction" : "Edit Transaction");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(stage);
-            dialogStage.setScene(new Scene(loader.load()));
+            
+            Scene scene = new Scene(loader.load(), 900, 700);
+            scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
+            dialogStage.setScene(scene);
+            dialogStage.setResizable(true);
+            dialogStage.setMinWidth(800);
+            dialogStage.setMinHeight(650);
+            dialogStage.centerOnScreen();
             
             TransactionDialogController controller = loader.getController();
             controller.setDialogStage(dialogStage);
