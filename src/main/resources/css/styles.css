@@ -1,49 +1,56 @@
-/* GitHub Light Theme inspired CSS for Bookkeeping Application */
+/* Minimalist GitHub Light Theme for Bookkeeping Application */
 
 /* Root styles */
 .root {
     -fx-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
     -fx-background-color: #ffffff;
     -fx-text-fill: #24292f;
 }
 
-/* Button styles */
+/* Button styles - GitHub minimalist design */
 .button {
     -fx-background-radius: 6px;
     -fx-border-radius: 6px;
-    -fx-padding: 5px 16px;
+    -fx-padding: 6px 12px;
     -fx-font-weight: 500;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
     -fx-cursor: hand;
+    -fx-border-width: 1px;
+    -fx-border-color: rgba(27, 31, 36, 0.15);
+    -fx-background-color: #f6f8fa;
+    -fx-text-fill: #24292f;
 }
 
 .button:hover {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 3, 0, 0, 1);
+    -fx-background-color: #f3f4f6;
+    -fx-border-color: rgba(27, 31, 36, 0.2);
 }
 
 .button:pressed {
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 2, 0, 0, 1);
+    -fx-background-color: #e1e4e8;
 }
 
 /* Primary button */
 .button.primary {
-    -fx-background-color: #2da44e;
-    -fx-text-fill: white;
+    -fx-background-color: #238636;
+    -fx-text-fill: #ffffff;
     -fx-border-color: rgba(27, 31, 36, 0.15);
-    -fx-border-width: 1px;
 }
 
 .button.primary:hover {
-    -fx-background-color: #2c974b;
+    -fx-background-color: #2ea043;
 }
 
-/* Secondary button */
+.button.primary:pressed {
+    -fx-background-color: #1a7f37;
+}
+
+/* Secondary button (default style) */
 .button.secondary {
     -fx-background-color: #f6f8fa;
     -fx-text-fill: #24292f;
     -fx-border-color: rgba(27, 31, 36, 0.15);
-    -fx-border-width: 1px;
 }
 
 .button.secondary:hover {
@@ -53,9 +60,8 @@
 /* Danger button */
 .button.danger {
     -fx-background-color: #da3633;
-    -fx-text-fill: white;
+    -fx-text-fill: #ffffff;
     -fx-border-color: rgba(27, 31, 36, 0.15);
-    -fx-border-width: 1px;
 }
 
 .button.danger:hover {
@@ -108,31 +114,47 @@
     -fx-border-color: #0969da;
 }
 
-/* TableView styles */
+/* TableView styles - Clean minimal design */
 .table-view {
     -fx-background-color: #ffffff;
     -fx-border-color: #d0d7de;
     -fx-border-width: 1px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 0;
 }
 
 .table-view .column-header-background {
     -fx-background-color: #f6f8fa;
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 0 0 1px 0;
 }
 
 .table-view .column-header {
     -fx-background-color: transparent;
     -fx-border-color: #d0d7de;
-    -fx-border-width: 0 1px 1px 0;
-    -fx-padding: 8px;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 12px 16px;
     -fx-font-weight: 600;
+    -fx-font-size: 13px;
+    -fx-text-fill: #656d76;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .column-header:last-child {
+    -fx-border-width: 0;
 }
 
 .table-view .table-cell {
     -fx-border-color: #d0d7de;
     -fx-border-width: 0 1px 1px 0;
-    -fx-padding: 6px 8px;
+    -fx-padding: 12px 16px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: #24292f;
+}
+
+.table-view .table-cell:last-child {
+    -fx-border-width: 0 0 1px 0;
 }
 
 .table-row-cell:selected {
@@ -140,17 +162,26 @@
     -fx-text-fill: #1e40af;
 }
 
-.table-row-cell:hover {
-    -fx-background-color: #f8fafc;
+.table-row-cell:hover:not(:selected) {
+    -fx-background-color: #f8f9fa;
 }
 
-/* TabPane styles */
+.table-row-cell:last-child .table-cell {
+    -fx-border-width: 0;
+}
+
+/* TabPane styles - Minimal and clean */
 .tab-pane {
-    -fx-tab-min-width: 120px;
+    -fx-tab-min-width: 140px;
+    -fx-background-color: #ffffff;
+}
+
+.tab-pane .tab-header-area {
+    -fx-padding: 0;
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #f6f8fa;
+    -fx-background-color: #ffffff;
     -fx-border-color: #d0d7de;
     -fx-border-width: 0 0 1px 0;
 }
@@ -158,23 +189,38 @@
 .tab-pane .tab {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-    -fx-padding: 8px 16px;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
 }
 
 .tab-pane .tab:selected {
     -fx-background-color: #ffffff;
-    -fx-border-color: #d0d7de;
-    -fx-border-width: 1px 1px 0 1px;
-    -fx-border-radius: 6px 6px 0 0;
+    -fx-border-color: #d0d7de #d0d7de #ffffff #d0d7de;
+    -fx-border-width: 1px 1px 2px 1px;
+    -fx-border-radius: 8px 8px 0 0;
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.tab-pane .tab:hover:not(:selected) {
+    -fx-background-color: #f6f8fa;
 }
 
 .tab-pane .tab-label {
     -fx-text-fill: #656d76;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
 }
 
 .tab-pane .tab:selected .tab-label {
     -fx-text-fill: #24292f;
     -fx-font-weight: 600;
+}
+
+.tab-pane .tab-content-area {
+    -fx-border-color: transparent;
+    -fx-background-color: #ffffff;
+    -fx-padding: 0;
 }
 
 /* MenuBar styles */
@@ -346,13 +392,115 @@
     -fx-padding: 8px 12px;
 }
 
-/* Card-like container */
+/* Card-like container - Enhanced for better visual hierarchy */
 .card {
     -fx-background-color: #ffffff;
     -fx-border-color: #d0d7de;
     -fx-border-width: 1px;
-    -fx-border-radius: 6px;
-    -fx-background-radius: 6px;
-    -fx-padding: 16px;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 4, 0, 0, 1);
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.03), 1, 0, 0, 1);
 }
+
+/* Enhanced input focus states */
+.text-field:focused, .text-area:focused, .combo-box:focused, .date-picker:focused {
+    -fx-border-color: #0969da;
+    -fx-border-width: 2px;
+}
+
+/* Subtle hover effects */
+.button:hover {
+    -fx-cursor: hand;
+}
+
+/* Clean separator */
+.separator .line {
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 1px 0 0 0;
+}
+
+/* Enhanced menu styles */
+.menu-bar .menu:showing {
+    -fx-background-color: #f3f4f6;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: #f6f8fa;
+    -fx-text-fill: #24292f;
+}
+
+/* Progress and loading states */
+.progress-bar .track {
+    -fx-background-color: #e1e4e8;
+    -fx-background-radius: 4px;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #238636;
+    -fx-background-radius: 4px;
+}
+
+/* Selection states */
+.list-view:focused .list-cell:filled:selected {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+}
+
+.tree-view:focused .tree-cell:filled:selected {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+}
+
+/* Clean borders for panels */
+.titled-pane {
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.titled-pane .title {
+    -fx-background-color: #f6f8fa;
+    -fx-padding: 12px 16px;
+    -fx-font-weight: 600;
+}
+
+/* Modern dialog styling */
+.dialog-pane {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.dialog-pane .header-panel {
+    -fx-background-color: #f6f8fa;
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 16px 20px;
+}
+
+.dialog-pane .content {
+    -fx-padding: 20px;
+}
+
+.dialog-pane .button-bar {
+    -fx-padding: 16px 20px;
+    -fx-border-color: #d0d7de;
+    -fx-border-width: 1px 0 0 0;
+    -fx-background-color: #f6f8fa;
+}
+
+/* Enhance visual feedback */
+.text-field:invalid, .text-area:invalid {
+    -fx-border-color: #da3633;
+    -fx-border-width: 2px;
+}
+
+.text-field:invalid:focused, .text-area:invalid:focused {
+    -fx-border-color: #da3633;
+}
+
+/* Subtle animations would be handled by JavaFX transitions in Java code */

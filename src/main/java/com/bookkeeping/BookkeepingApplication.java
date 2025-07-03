@@ -1,13 +1,16 @@
 package com.bookkeeping;
 
+import java.io.IOException;
+
 import com.bookkeeping.controller.MainController;
 import com.bookkeeping.service.AccountService;
 import com.bookkeeping.util.DatabaseUtil;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import java.io.IOException;
 
 /**
  * Main JavaFX Application Class
@@ -25,7 +28,8 @@ public class BookkeepingApplication extends Application {
         // Add CSS
         scene.getStylesheets().add(getClass().getResource("/css/styles.css").toExternalForm());
         
-        stage.setTitle("Bookkeeping Application - Complete Accounting System");
+        stage.setTitle("Bookkeeping Application - Accounting System");
+        stage.getIcons().add(new Image(getClass().getResource("/img/icon.png").toString()));
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
